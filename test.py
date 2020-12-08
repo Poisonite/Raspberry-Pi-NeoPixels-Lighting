@@ -1,12 +1,7 @@
-import board
-import neopixel
-from time import sleep
+# num = int(input("Enter a number: "))
 
-# Welcome Message
-print("Hello, Light Master!\n")
+# print(f"Number is: {num}")
 
-# Better input Syntax:
-# num = int(input("Enter a number: ")
 
 # Set Config Params
 pixelCount = int(input("Enter number of pixels to modify: "))
@@ -28,22 +23,11 @@ print(f'Brightness: {brightness}')
 print(f'\nColor One: ({red1}, {green1}, {blue1})')
 print(f'Color Two: ({red2}, {green2}, {blue2})')
 
-# Assign the pixels to be modified and give the new brightness
-pixels = neopixel.NeoPixel(board.D18, pixelCount, brightness=brightness)
-
-# Clear any Existing color data
-pixels.fill((0, 0, 0))
-print("Cleared existing pixel info.")
-sleep(2)
 # Assign the new colors
 for i in range(pixelCount):
     if (i % 2) == 0:
-        pixels[i] = (red1, green1, blue1)
+        print(f"({red1}, {green1}, {blue1})")
     else:
-        pixels[i] = (red2, green2, blue2)
+        print(f"({red2}, {green2}, {blue2})")
 
-pixels.show()
 print(f'Updated pixel color info to:\n({red1}, {green1}, {blue1}) and ({red2}, {green2}, {blue2}).')
-
-# Notify user of script completion
-print("\nFinished sending pixel instructions.")

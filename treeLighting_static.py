@@ -6,7 +6,7 @@ from time import sleep
 print("Hello, Light Master!")
 
 # Output user's config info
-print("Beginning test light operation with perams: ")
+print("\nBeginning test light operation with perams: ")
 print('Pixels: 10')
 print('Brightness: 1')
 print('Color: (255, 0, 0)')
@@ -24,4 +24,4 @@ pixels.show()
 print('Updated pixel color info to: (255, 0, 0).')
 
 # Notify user of script completion
-print("Finished sending pixel instructions.")
+print("\nFinished sending pixel instructions.")
