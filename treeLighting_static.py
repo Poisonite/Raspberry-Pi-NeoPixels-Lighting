@@ -12,7 +12,8 @@ print('Brightness: 1')
 print('Color: (255, 0, 0)')
 
 # Assign the pixels to be modified and give the new brightness
-pixels = neopixel.NeoPixel(board.D18, 10, brightness=1)
+pixels = neopixel.NeoPixel(
+    board.D18, 1000, brightness=1, auto_write=False, pixel_order=neopixel.GRB)
 
 # Clear any Existing color data
 pixels.fill((0, 0, 0))

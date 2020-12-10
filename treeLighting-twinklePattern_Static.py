@@ -14,10 +14,11 @@ print(f'\nColor One: (255, 0, 0)')
 print(f'Color Two: (0, 255, 0)')
 
 # Assign the pixels to be modified and give the new brightness
-pixels = neopixel.NeoPixel(board.D18, 100, brightness=0.5)
+pixels = neopixel.NeoPixel(board.D18, 1000, brightness=0.5, auto_write=False)
 
 # Clear any Existing color data
 pixels.fill((0, 0, 0))
+pixels.show()
 print("Cleared existing pixel info.")
 sleep(2)
 
@@ -30,20 +31,22 @@ while runs >= 0:
     # Changes which pattern is used depending on what was used in the last run
     if (runs % 2) == 0:
         # Assign the new colors
-        for i in range(100):
+        for i in range(1000):
             if (i % 2) == 0:
                 pixels[i] = (255, 0, 0)
             else:
                 pixels[i] = (0, 255, 0)
+        pixels.show()
     else:
         # Assign the new colors
-        for i in range(100):
+        for i in range(1000):
             if (i % 2) == 0:
                 pixels[i] = (0, 255, 0)
             else:
                 pixels[i] = (255, 0, 0)
+        pixels.show()
 
-pixels.show()
+
 print(f'Updated pixel color info to:\n(255, 0, 0) and (0, 255, 0).')
 
 # Notify user of script completion

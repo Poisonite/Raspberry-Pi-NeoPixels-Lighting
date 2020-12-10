@@ -39,7 +39,8 @@ sleep(2)
 runs = 0
 while runs >= 0:
     # Runs a delay before the next change happens
-    sleep(speed)
+    # sleep(speed)
+    runs = runs+1
 
     # Changes which pattern is used depending on what was used in the last run
     if (runs % 2) == 0:
