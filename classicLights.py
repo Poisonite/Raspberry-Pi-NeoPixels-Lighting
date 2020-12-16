@@ -23,7 +23,7 @@ for i in range(1000):
     if (i % 2) == 0:
         pixels[i] = (190, 60, 0)
     else:
-        pixels[i] = (51, 50, 46)
+        pixels[i] = (255, 189, 109)
 pixels.show()
 
 # Begin twinkle
