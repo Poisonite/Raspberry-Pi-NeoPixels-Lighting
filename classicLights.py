@@ -10,7 +10,7 @@ print("Beginning the classic light show!")
 
 # Assign the pixels to be modified and give the new brightness
 pixels = neopixel.NeoPixel(
-    board.D18, 1000, brightness=0.5, auto_write=False, pixel_order=neopixel.RGB)
+    board.D18, 2000, brightness=0.4, auto_write=False, pixel_order=neopixel.RGB)
 
 # Clear any Existing color data
 pixels.fill((0, 0, 0))
@@ -19,7 +19,7 @@ print("Cleared existing pixel info.")
 sleep(0.5)
 
 # Set Base color
-for i in range(1000):
+for i in range(2000):
     if (i % 2) == 0:
         pixels[i] = (190, 60, 0)
     else:
@@ -29,12 +29,12 @@ pixels.show()
 # Begin twinkle
 while True:
     # Get pixel list
-    i = random.randint(0, 999)
-    j = random.randint(0, 999)
-    k = random.randint(0, 999)
-    l = random.randint(0, 999)
-    m = random.randint(0, 999)
-    n = random.randint(0, 999)
+    i = random.randint(0, 1999)
+    j = random.randint(0, 1999)
+    k = random.randint(0, 1999)
+    l = random.randint(0, 1999)
+    m = random.randint(0, 1999)
+    n = random.randint(0, 1999)
 
     # Collect existing pixel info
     iColor = pixels[i]
