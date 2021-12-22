@@ -15,10 +15,10 @@ baseColor1 = (190, 60, 0)
 baseColor2 = (255, 189, 109)
 twinkleColor = (255, 250, 236)
 
-# Twinkle Settings
+# Prod Twinkle Settings
 twinkleCountMin = 10
 twinkleCountMax = 50
-twinkleTimeMin = 0.01
+twinkleTimeMin = 0.05
 twinkleTimeMax = 0.3
 
 # Welcome Message
@@ -42,42 +42,33 @@ for i in range(pixelCount):
         pixels[i] = baseColor1
     else:
         pixels[i] = baseColor2
-pixels.show()
-
-# Define a structued class for the pixel data
-class PixelSettings:
-  def __init__(self, num, orgColor):
-    self.num = num
-    self.orgColor = orgColor
+pixels.show()     
 
 # Begin twinkle
 print("Start twinkle pattern")
 while True:
     # Store the pixels which will be changed
-    pixelSettingArr = []
+    my_pixels = {}
+    i = 0
 
     # Get pixel list
     for i in range(random.randint(twinkleCountMin, twinkleCountMax)):
         # Define important info for the pixel to be changed
         pixelNum = random.randint(0, pixelCount-1)
         pixelColor = pixels[pixelNum]
+        my_pixels[pixelNum] = pixelColor
 
-        # Set white color on twinkle pixels
-        pixels[pixelNum] = twinkleColor
-
-        # Structure the collected data
-        pixelSetting = PixelSettings(pixelNum, pixelColor)
-
-        # Add structured settings to storage arr
-        pixelSettingArr.append(pixelSetting)
+    # Set twinkle pixels to twinkle color
+    for pixel in my_pixels.keys():
+        pixels[pixel] = twinkleColor
 
     # Output the finished set of changes and wait
     pixels.show()
     sleep(random.uniform(twinkleTimeMin, twinkleTimeMax))
 
-    # Set twinkle pixels back to org
-    for pixelSetting in pixelSettingArr:
-        pixels[pixelSetting.num] = pixelSetting.orgColor
+     # Set twinkle pixels back to org
+    for pixel in my_pixels.keys():
+        pixels[pixel] = my_pixels[pixel]
 
     # Output the reset pixels
     pixels.show()
